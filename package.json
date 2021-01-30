@@ -2,14 +2,23 @@
   "name": "cubyl-timer",
   "version": "1.0.0",
   "description": "Web app for generating Rubik's cube scrambles and timing solves",
-  "main": "index.html",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Zafaris",
   "license": "ISC",
   "dependencies": {
     "scrambles": "^0.1.13",
     "scrambo": "^0.3.0"
-  }
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zafaris/cubyl-timer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zafaris/cubyl-timer/issues"
+  },
+  "homepage": "https://github.com/zafaris/cubyl-timer#readme"
 }

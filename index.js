@@ -1,7 +1,7 @@
-import { randomScrambleStringForEvent } from './node_modules/scrambles/dist/esm-browser-bundle-global/scrambles.js'
+const scramble = new Scrambo()
 
-let timerText = document.getElementById('timerText')
-let timerButton = document.getElementById('timerButton')
+const timerText = document.getElementById('timerText')
+const timerButton = document.getElementById('timerButton')
 
 let timerInterval = null
 let timerState = 0
@@ -56,9 +56,8 @@ timerButton.addEventListener('click', () => {
 
 function generateScramble() {
   if (timerState == 0) {
-    randomScrambleStringForEvent('333').then((scrambleString) => {
-      document.getElementById('scramble').innerHTML = scrambleString
-    })
+    const scrambles = scramble.get()
+    document.getElementById('scramble').innerHTML = scrambles.join('<br>')
   }
 }
 
