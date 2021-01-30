@@ -52,7 +52,8 @@ body {
 }
 
 .content {
-  margin: 0px auto;
+  display: flex;
+  flex-direction: column;
   text-align: center;
 }
 
@@ -73,15 +74,23 @@ span {
   color: var(--textColor);
 }
 
-h1,
-h2 {
-  margin-bottom: 10px;
-}
-
 a,
 a:hover {
   text-decoration: none;
   color: var(--textColorSecondary);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 10px;
 }
 
 #scramble {
