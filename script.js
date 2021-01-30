@@ -1,4 +1,4 @@
-const scramble = new Scrambo()
+import { randomScrambleStringForEvent } from './node_modules/scrambles/dist/esm-browser-bundle-global/scrambles.js'
 
 let timerText = document.getElementById('timerText')
 let timerButton = document.getElementById('timerButton')
@@ -16,93 +16,98 @@ let milliseconds = 0
 
 generateScramble()
 
-this.addEventListener('keydown', event => {
-    if (event.code == 'Space') {
-        if (spaceDownTime == 0) {
-            if (timerState == 0) {
-                spaceDownTime = Date.now()
-                spaceUpTime = 0
-            } else if (timerState == 1) {
-                timer()
-            }
-        }
+document.addEventListener('keydown', (event) => {
+  if (event.code == 'Space') {
+    if (spaceDownTime == 0) {
+      if (timerState == 0) {
+        spaceDownTime = Date.now()
+        spaceUpTime = 0
+      } else if (timerState == 1) {
+        timer()
+      }
     }
+  }
 })
 
-this.addEventListener('keyup', event => {
-    if (event.code == 'Space') {
-        if (timerState == 0) {
-            spaceUpTime = Date.now()
-            spaceTimePressed = spaceUpTime - spaceDownTime
-            spaceDownTime = 0
+document.addEventListener('keyup', (event) => {
+  if (event.code == 'Space') {
+    if (timerState == 0) {
+      spaceUpTime = Date.now()
+      let spaceTimePressed = spaceUpTime - spaceDownTime
+      spaceDownTime = 0
 
-            if (spaceTimePressed > 300) {
-                timer()
-            }
-        } else if (timerState == 2) {
-            if (keyUpCount == 0) {
-                keyUpCount++
-            }
-            else {
-                keyUpCount = 0
-                timer()
-            }
-        }
+      if (spaceTimePressed > 300) {
+        timer()
+      }
+    } else if (timerState == 2) {
+      if (keyUpCount == 0) {
+        keyUpCount++
+      } else {
+        keyUpCount = 0
+        timer()
+      }
     }
+  }
+})
+
+timerButton.addEventListener('click', () => {
+  timer()
 })
 
 function generateScramble() {
-    if (timerState == 0) {
-        let scrambles = scramble.get()
-        document.getElementById('scramble').innerHTML = scrambles.join('<br>')
-    }
+  if (timerState == 0) {
+    randomScrambleStringForEvent('333').then((scrambleString) => {
+      document.getElementById('scramble').innerHTML = scrambleString
+    })
+  }
 }
 
 function timer() {
-    // Remove focus from all buttons
-    document.querySelectorAll('button').forEach(function(element) {
-        element.blur()
-    })
+  // Remove focus from all buttons
+  document.querySelectorAll('button').forEach(function (element) {
+    element.blur()
+  })
 
-    switch (timerState) {
-        case 0:
-            timerState = 1
-            timerText.classList.add('active')
-            timerButton.innerHTML = 'Stop'
+  switch (timerState) {
+    case 0:
+      timerState = 1
+      timerText.classList.add('active')
+      timerButton.innerHTML = 'Stop'
 
-            timerInterval = window.setInterval(updateTimer, 10)
-            break
-        case 1:
-            timerState = 2
-            timerButton.innerHTML = 'Reset'
+      timerInterval = window.setInterval(updateTimer, 10)
+      break
+    case 1:
+      timerState = 2
+      timerButton.innerHTML = 'Reset'
 
-            minutes = 0
-            seconds = 0
-            milliseconds = 0
+      minutes = 0
+      seconds = 0
+      milliseconds = 0
 
-            window.clearInterval(timerInterval)
-            break
-        case 2:
-            timerState = 0
-            timerText.classList.remove('active')
-            timerText.innerHTML = '00.00.00'
-            timerButton.innerHTML = 'Start'
-            
-            generateScramble()
-            break
-    }
+      window.clearInterval(timerInterval)
+      break
+    case 2:
+      timerState = 0
+      timerText.classList.remove('active')
+      timerText.innerHTML = '00.00.00'
+      timerButton.innerHTML = 'Start'
+
+      generateScramble()
+      break
+  }
 }
 
 function updateTimer() {
-    milliseconds++
-    if (milliseconds > 100) {
-        milliseconds = 0
-        seconds++
-    }
-    if (seconds > 60) {
-        seconds = 0
-        minutes++
-    }
+  milliseconds++
+  if (milliseconds > 100) {
+    milliseconds = 0
+    seconds++
+  }
+  if (seconds > 60) {
+    seconds = 0
+    minutes++
+  }
 
-    timerText.innerHTML = ('00' + minutes).substr(-2,2) + '.' + ('00' + seconds).substr(-2,2) + '.' + ('00' + milliseconds).substr(-2,2)
+  timerText.innerHTML =
+    ('00' + minutes).substr(-2, 2) + '.' + ('00' + seconds).substr(-2, 2) + '.' + ('00' + milliseconds).substr(-2, 2)
 }

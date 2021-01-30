@@ -1,38 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cubyl Timer</title>
 
-    <link rel="stylesheet" href="style.css">
-    <script src="node_modules/scrambo/scrambo.js"></script>
-    <script defer src="script.js"></script>
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+    <script src="node_modules/scrambles/dist/esm-browser-bundle-global/scrambles.js" type="module" defer></script>
+    <script src="script.js" type="module" defer></script>
+  </head>
+  <body>
     <div class="container">
-        <div class="content">
-            <div class="section">
-                <h1>Cubyl Timer</h1>
-            </div>
-            <hr>
-            <div class="section">
-                <h2>Scramble</h2>
-                <p id="scramble"></p>
-                <!-- <button onclick="generateScramble()">Generate new Scramble</button> -->
-            </div>
-            <hr>
-            <div class="section">
-                <h2>Timer</h2>
-
-                <div>
-                    <p id="timerText">00.00.00</p>
-                    <span>Use the space bar (hold to start) or click on the button</span>
-                    <br>
-                    <button id="timerButton" onclick="timer()">Start</button>
-                </div>
-            </div>
+      <div class="content">
+        <div class="section">
+          <h1>Cubyl Timer</h1>
         </div>
+        <hr />
+        <div class="section">
+          <h2>Scramble</h2>
+          <p id="scramble"></p>
+        </div>
+        <hr />
+        <div class="section">
+          <h2>Timer</h2>
+
+          <div>
+            <p id="timerText">00.00.00</p>
+            <span>Use the space bar (hold to start) or click on the button</span>
+            <br />
+            <button id="timerButton">Start</button>
+          </div>
+        </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>
