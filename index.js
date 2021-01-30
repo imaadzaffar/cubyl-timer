@@ -57,7 +57,7 @@ timerButton.addEventListener('click', () => {
 function generateScramble() {
   if (timerState == 0) {
     const scrambles = scramble.get()
-    document.getElementById('scramble').innerHTML = scrambles.join('<br>')
+    document.getElementById('scramble').textContent = scrambles.join('<br>')
   }
 }
 
@@ -71,13 +71,13 @@ function timer() {
     case 0:
       timerState = 1
       timerText.classList.add('active')
-      timerButton.innerHTML = 'Stop'
+      timerButton.textContent = 'Stop'
 
       timerInterval = window.setInterval(updateTimer, 10)
       break
     case 1:
       timerState = 2
-      timerButton.innerHTML = 'Reset'
+      timerButton.textContent = 'Reset'
 
       minutes = 0
       seconds = 0
@@ -88,8 +88,8 @@ function timer() {
     case 2:
       timerState = 0
       timerText.classList.remove('active')
-      timerText.innerHTML = '00.00.00'
-      timerButton.innerHTML = 'Start'
+      timerText.textContent = '00.00.00'
+      timerButton.textContent = 'Start'
 
       generateScramble()
       break
@@ -107,6 +107,6 @@ function updateTimer() {
     minutes++
   }
 
-  timerText.innerHTML =
+  timerText.textContent =
     ('00' + minutes).substr(-2, 2) + '.' + ('00' + seconds).substr(-2, 2) + '.' + ('00' + milliseconds).substr(-2, 2)
 }

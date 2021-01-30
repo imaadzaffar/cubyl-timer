@@ -3,7 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#1b1b1b" />
     <title>Cubyl Timer</title>
+    <meta name="description" content="Web app for generating Rubik's cube scrambles and timing solves" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
 
     <link rel="stylesheet" href="style.css" />
     <script src="scrambo.js" defer></script>
@@ -13,7 +19,9 @@
     <div class="container">
       <div class="content">
         <div class="section">
+          <img src="images/logo.png" alt="Logo" />
           <h1>Cubyl Timer</h1>
+          <a target="_blank" href="https://github.com/zafaris/cubyl-timer">Developed by Zafaris</a>
         </div>
         <hr />
         <div class="section">
@@ -23,13 +31,19 @@
         <hr />
         <div class="section">
           <h2>Timer</h2>
-
           <div>
             <p id="timerText">00.00.00</p>
-            <span>Use the space bar (hold to start) or click on the button</span>
+            <span id="helpText">Use the space bar (hold to start) or click on the button</span>
             <br />
             <button id="timerButton">Start</button>
           </div>
+        </div>
+        <hr />
+        <div class="section">
+          <p>
+            <a target="_blank" href="https://icons8.com/icons/set/rubiks-cube">Rubik's Cube icon</a> icon by
+            <a target="_blank" href="https://icons8.com">Icons8</a>
+          </p>
         </div>
       </div>
     </div>
