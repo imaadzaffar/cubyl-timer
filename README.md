@@ -148,6 +148,8 @@ Project Link: [https://github.com/zafaris/cubyl-timer](https://github.com/zafari
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
 [live-website]: https://cubyl-timer.netlify.app
+[product-screenshot]: images/product-screenshot.png
+
 [contributors-shield]: https://img.shields.io/github/contributors/zafaris/repo.svg?style=for-the-badge
 [contributors-url]: https://github.com/zafaris/cubyl-timer/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/zafaris/repo.svg?style=for-the-badge
@@ -158,6 +160,7 @@ Project Link: [https://github.com/zafaris/cubyl-timer](https://github.com/zafari
 [issues-url]: https://github.com/zafaris/cubyl-timer/issues
 [license-shield]: https://img.shields.io/github/license/zafaris/repo.svg?style=for-the-badge
 [license-url]: https://github.com/zafaris/cubyl-timer/blob/master/LICENSE.md
+
 [website-shield]: https://img.shields.io/website?label=iszaffar.com&style=for-the-badge&url=https%3A%2F%2Fiszaffar.com
 [website-url]: https://iszaffar.com
 [youtube-shield]: https://img.shields.io/badge/-YouTube-red?&style=for-the-badge&logo=youtube&logoColor=white
