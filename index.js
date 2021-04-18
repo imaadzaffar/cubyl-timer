@@ -12,7 +12,7 @@ let keyUpCount = 0
 
 let minutes = 0
 let seconds = 0
-let milliseconds = 0
+let centiseconds = 0
 
 generateScramble()
 
@@ -81,14 +81,14 @@ function timer() {
 
       minutes = 0
       seconds = 0
-      milliseconds = 0
+      centiseconds = 0
 
       window.clearInterval(timerInterval)
       break
     case 2:
       timerState = 0
       timerText.classList.remove('active')
-      timerText.textContent = '00.00.00'
+      timerText.textContent = '00.00'
       timerButton.textContent = 'Start'
 
       generateScramble()
@@ -97,16 +97,20 @@ function timer() {
 }
 
 function updateTimer() {
-  milliseconds++
-  if (milliseconds > 100) {
-    milliseconds = 0
+  centiseconds++
+
+  if (centiseconds >= 100) {
+    centiseconds = 0
     seconds++
   }
-  if (seconds > 60) {
+
+  if (seconds >= 60) {
     seconds = 0
     minutes++
   }
 
-  timerText.textContent =
-    ('00' + minutes).substr(-2, 2) + '.' + ('00' + seconds).substr(-2, 2) + '.' + ('00' + milliseconds).substr(-2, 2)
+  timerText.textContent = ('00' + seconds).substr(-2, 2) + '.' + ('00' + centiseconds).substr(-2, 2)
+  if (minutes >= 1) {
+    timerText.textContent = ('00' + minutes).substr(-2, 2) + '.' + myTimer.textContent
+  }
 }
